@@ -34,76 +34,137 @@
         <main>          
           <!-- Page content -->   
            
-          <!-- image gallery -->
-          <div class="row">
+          <style>
+            * {
+              box-sizing: border-box;
+            }
+
+            body {
+              margin: 0;
+              font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .header {
+              text-align: center;
+              padding: 32px;
+            }
+
+            .row {
+              display: -ms-flexbox; /* IE 10 */
+              display: flex;
+              -ms-flex-wrap: wrap; /* IE 10 */
+              flex-wrap: wrap;
+              padding: 0 4px;
+            }
+
+            /* Create two equal columns that sits next to each other */
+            .column {
+              -ms-flex: 50%; /* IE 10 */
+              flex: 50%;
+              padding: 0 4px;
+            }
+
+            .column img {
+              margin-top: 8px;
+              vertical-align: middle;
+            }
+
+            /* Style the buttons */
+            .btn {
+              border: none;
+              outline: none;
+              padding: 10px 16px;
+              background-color: #f1f1f1;
+              cursor: pointer;
+              font-size: 18px;
+            }
+
+            .btn:hover {
+              background-color: #ddd;
+            }
+
+            .btn.active {
+              background-color: #666;
+              color: white;
+            }
+          </style>
+
+          <!-- Header -->
+          <div class="header" id="myHeader">
+            <h2>Gallery</h2>
+            <p>Click on the buttons to change the grid view.</p>
+            <button class="btn" onclick="one()">1</button>
+            <button class="btn active" onclick="two()">2</button>
+            <button class="btn" onclick="four()">4</button>
+          </div>
+
+          <!-- Photo Grid -->
+          <div class="row" style="padding-bottom: 30px;"> 
             <div class="column">
-              <img src="gal1.jpg" alt="Jellyfish art" style="width:100%; border-radius: 8px;" onclick="">
+              <img src="../gal1.jpg" style="width:100%">
+              <img src="../gal2.jpg" style="width:100%">
+              <img src="../gal3.jpg" style="width:100%">
             </div>
             <div class="column">
-              <img src="gal2.jpg" alt="Moo pot" style="width:100%; border-radius: 8px;">
+              <img src="../gal4.jpg" style="width:100%">
+              <img src="../gal5.jpg" style="width:100%">
+              <img src="../gal6.jpg" style="width:100%">
+            </div>  
+            <div class="column">
+              <img src="../gal7.jpg" style="width:100%">
+              <img src="../gal8.jpg" style="width:100%">
+              <img src="../gal9.jpg" style="width:100%">
             </div>
             <div class="column">
-              <img src="gal3.jpg" alt="Seahorse" style="width:100%; border-radius: 8px;">
-            </div>
-            <div class="column">
-              <img src="gal4.jpg" alt="Lighthouse soap" style="width:100%; border-radius: 8px;">
-            </div>
-            <div class="column">
-              <img src="gal5.jpg" alt="Fairy" style="width:100%; border-radius: 8px;">
-            </div>
-            <div class="column">
-              <img src="gal6.jpg" alt="Lighthouse cube" style="width:100%; border-radius: 8px;">
+              <img src="../gal10.jpg" style="width:100%">
+              <img src="../gal11.jpg" style="width:100%">
+              <img src="../gal12.jpg" style="width:100%">
             </div>
           </div>
 
           <script>
-            function openModal() {
-              document.getElementById("myModal").style.display = "block";
-            }
+            // Get the elements with class="column"
+            var elements = document.getElementsByClassName("column");
 
-            function closeModal() {
-              document.getElementById("myModal").style.display = "none";
-            }
+            // Declare a loop variable
+            var i;
 
-            var slideIndex = 1;
-            showSlides(slideIndex);
-
-            function plusSlides(n) {
-              showSlides(slideIndex += n);
-            }
-
-            function currentSlide(n) {
-              showSlides(slideIndex = n);
-            }
-
-            function showSlides(n) {
-              var i;
-              var slides = document.getElementsByClassName("mySlides");
-              var dots = document.getElementsByClassName("demo");
-              var captionText = document.getElementById("caption");
-
-              if (n > slides.length) {slideIndex =  1}
-              if (n < 1) {slideIndex = slides.length}
-              for (i = 0; i < slides.length; i++) {
-                dots[i].className.replace(" active ", "");
+            // Full-width images
+            function one() {
+                for (i = 0; i < elements.length; i++) {
+                elements[i].style.msFlex = "100%";  // IE10
+                elements[i].style.flex = "100%";
               }
-              slides[slideIndex-1].style.display = "block";
-              dots[slideIndex-1].className += " active ";
-              captionText.innerHTML = dots[slideIndex-1].alt;
+            }
+
+            // Two images side by side
+            function two() {
+              for (i = 0; i < elements.length; i++) {
+                elements[i].style.msFlex = "50%";  // IE10
+                elements[i].style.flex = "50%";
+              }
+            }
+
+            // Four images side by side
+            function four() {
+              for (i = 0; i < elements.length; i++) {
+                elements[i].style.msFlex = "25%";  // IE10
+                elements[i].style.flex = "25%";
+              }
+            }
+
+            // Add active class to the current button (highlight it)
+            var header = document.getElementById("myHeader");
+            var btns = header.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+              btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+              });
             }
           </script>
 
-          <h2>Everything hand crafted by Michele</h2>
-          <p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5062.155723443952!2d-1.1811731245518395!3d50.62567037473357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48748bc94639f4cd%3A0x4caa7755f8c64742!2s109%20High%20St%2C%20Shanklin%20PO37%206NS!5e0!3m2!1sen!2suk!4v1750928903410!5m2!1sen!2suk" width="500" height="420" style="border:0; float: right;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            Crafty Days Shanklin is an independent shop run by Michele, which contains a huge range of hand crafted items for any occasion or purpose.<br><br>
-            Whether you are looking for a seasonal gift, garden accessories, or to add an artistic touch to your decorations, you can find what you need here.<br><br>
-            All items are hand crafted by Michele, and personalised items can also be made to order.<br><br>
-            <a href="#contact" class="niceLink">Contact us</a> to find out more!<br><br>
-            From canvas paintings to custom plant pots, you can see all products <a class="niceLink">here</a>.<br><br>
-            View the <a class="niceLink">gallery</a> to browse through in-store and personalised crafts.<br><br>
-            <img src="foh-image.jpg" alt="Image of the front of the Crafty Days store" style="width: 500px; border-radius: 10px; padding: 0.5em;"/>
-          </p>
         </main>
 
         <footer class="footerInfo">
