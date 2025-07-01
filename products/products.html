@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Products</title>
+        <link type="text/css" rel="stylesheet" href="../styles.css"/> <!-- css stylesheet -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- font awesome icons -->
+        <link href='https://fonts.googleapis.com/css?family=Diplomata' rel='stylesheet'> <!-- google fonts -->
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+        div.gallery {
+          height: auto;
+          border: 1px solid #ccc;
+        }
+
+        div.gallery:hover {
+          border: 1px solid #777;
+        }
+
+        div.gallery img {
+          /* width: 100%;
+          height: same-as-width; */
+          /* position: relative; */
+          width: 100%;
+          height: 300px;
+          overflow: hidden;
+        }
+
+        div.desc {
+          padding: 15px;
+          text-align: center;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        .responsive {
+          padding: 5px 6px;
+          float: left;
+          width: 24.99999%;
+        }
+
+        @media only screen and (max-width: 700px) {
+          .responsive {
+            width: 49.99999%;
+            margin: 6px 0;
+          }
+        }
+
+        @media only screen and (max-width: 500px) {
+          .responsive {
+            width: 100%;
+          }
+        }
+
+        .clearfix:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        </style>
+    </head>
+
+    <body>
+      <header>
+      <!-- Title -->
+      <ul class="title">
+        <li class="titleText center"><h4>Created on the Isle of Wight</h4></li>
+        <li class="titleText center"><h1>Crafty Days</h1></li>
+        <li class="titleText center"><h4>Personalised orders welcome</h4></li>
+      </ul>
+      <h4 style="padding: 0%;" class="titleText">By Michele</p>
+
+      <!-- top bar -->
+	    <nav id="topMenu">
+  	    <ul> <!-- menu bar along the top containing all options for the website -->
+          <li><a href="../index.html"><i style="font-size:20px; color:#00605C" class="fa fa-home"></i></a></li>
+          <li>Products</li>
+          <li><a href="../gallery/gallery.html" id="clickableMenu">Gallery</a></li>
+          <li><a href="../contact-us.html" id="clickableMenu">Contact us</a></li>
+          <li><a href="../visit-us.html" id="clickableMenu">Visit us</a></li>
+        </ul>
+	    </nav>
+	  </header>
+      
+        <main>          
+          <!-- Page content -->   
+          <h2>Products</h2>
+          <h4>Browse all our products below</h4>
+
+          <div style="width: 100%; height: fit-content; margin-bottom: 200px; padding-bottom: 200px;">
+            <div class="responsive">
+              <div class="gallery">
+                <a target="_blank" href="flower-pots.html">
+                  <img src="../gallery/g1.jpg" alt="Flower Pots" width="600" height="400">
+                </a>
+                <div class="desc">Flower Pots</div>
+              </div>
+            </div>
+          </div>
+
+        </main>
+
+        <footer class="footerInfo">
+          <div style="font-weight: bold; text-align: center; background-color: white;">
+            109 High street,<br>
+            PO37 6NS,<br>
+            Shanklin,<br>
+            United Kingdom
+          </div>
+
+          <nav>
+            <ul class="footerInfo" id="contact">
+              <li class="footerInfoText">109 High street, PO37 6NS, Shanklin, United Kingdom</li>
+              <li class="footerInfoText"><i class="fa fa-envelope fa" style="color: white;"></i>&emsp;<b>m.s.suggett@gmail.com</b></li>
+              <li class="footerInfoText"><i class="fa fa-mobile fa-lg" style="color:white;"></i>&emsp;<b>07851 227794</b></li>
+              <li class="footerInfoText"><i class="fa fa-facebook fa-lg" style="color:white;"></i>&emsp;<b>Crafty Days</b></li>
+              <li class="footerInfoText"><i class="fa fa-instagram fa-lg" style="color:white;"></i>&emsp;<b>michelesuggett</b></li>
+            </ul>
+          </nav>
+        </footer>
+    </body>
+</html>
